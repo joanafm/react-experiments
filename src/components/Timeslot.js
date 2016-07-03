@@ -1,22 +1,48 @@
 import React from 'react';
+import Dropdown from './Dropdown';
 
 class Timeslot extends React.Component {
-  buildSlotlist(props) {
+
+  constructor(props) {
     super(props);
-    // let slots = [];
+    this.initTimeSlots();
+  }
+
+  state = {
+    slots: []
+  }
+
+  initTimeSlots() {
+    const slots = buildSlotsList();
+    this.setState({ slots });
+  }
+
+  // must return an array of timeslots
+  buildSlotsList() {
+    let slots = [];
     let time = 1440;
-    let slot = props.interval;
-    // let hour = 0;
-    // let min = 0;
-    if (slot === undefined) {
-      slot = 30;
+    let interval = 0;
+
+    // acho que nao podes fazer isto... modificar o props.interval
+    if (this.props.interval === undefined) {
+      interval = 30;
     }
-    if (slot > time) {
+
+    if (interval > time) {
       // we can not have slots bigger than time
       return;
     }
-    time = time / slot;
+
+    time = time / interval;
     Number((time).toFixed(1));
+
+    return slots;
+  }
+
+  render() {
+    return (
+      <Dropdown list={this.state.slots}/>
+    );
   }
 }
 

@@ -1,9 +1,12 @@
 import React from 'react';
 import Button from './components/Button';
-// import Timeslot from './components/Timeslot';
+import Timeslot from './components/Timeslot';
 
 const App = () => (
-  <Button content="Let us start" />
+  <div>
+    <Button content="Let us start" />
+    <Timeslot />
+  </div>
 );
 
 export default App;
