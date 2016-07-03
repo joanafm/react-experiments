@@ -7,22 +7,21 @@ export default Button; */
 
 import React from 'react';
 
-const Button = ({ children, ...rest }) =>
-  <button type="button" className="btn btn-default btn-lg" {...rest}>
-    {children}
-  </button>;
+const Button = ({ children, styles, ...rest }) => {
+  const addStyle = () => {
+    const baseStyle = 'btn btn-default btn-lg';
+    return styles ? `${baseStyle}  ${styles}` : baseStyle;
+  };
+  return (
+    <button type="button" className={addStyle()} {...rest}>
+      {children}
+    </button>
+  );
+};
 
 Button.propTypes = {
-  children: React.PropTypes.string
+  children: React.PropTypes.string,
+  styles: React.PropTypes.string
 };
 
 export default Button;
-
-/* const Button = ({ children, styles, ...rest }) => (
-  const _styles = `btn btn-default btn-lg ${styles}`;
-  <button type="button" className={_styles} {...rest}>
-    { children }
-  </button>
-); */
-
-// talvez tenhas que verificar se os styles estão definidos antes de fazer a interpolation

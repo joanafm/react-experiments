@@ -48,6 +48,7 @@ class Dropdown extends React.Component {
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="true"
+            styles="dropdown-toggle"
           >
             {defaultOption}
             <span className="caret"></span>
