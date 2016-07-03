@@ -1,6 +1,5 @@
 import React from 'react';
 import Dropdown from './Dropdown';
-import FlatArrayExample from './Dropdown2';
 
 class Timeslot extends React.Component {
 
@@ -43,10 +42,11 @@ class Timeslot extends React.Component {
 
   render() {
     return (
-      <div>
-        <Dropdown list={this.state.slots} />
-        <FlatArrayExample list={this.state.slots} />
-      </div>
+      <Dropdown
+        title="Choose your schedule:"
+        message="Time"
+        list={this.state.slots}
+      />
     );
   }
 }

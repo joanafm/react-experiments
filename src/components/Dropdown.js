@@ -4,6 +4,8 @@ class Dropdown extends React.Component {
 
   static propTypes = {
     list: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    title: React.PropTypes.string,
+    message: React.PropTypes.string,
     selected: React.PropTypes.string
   }
 
@@ -34,8 +36,29 @@ class Dropdown extends React.Component {
   }
 
   render() {
+    const defaultOption = this.props.message;
+    const placeHolderValue = this.props.list[0];
     return (
-      <div className={'dropdown-container' + (this.state.isVisible ? ' show' : '')}>
+      <div>
+        <h4>{this.props.title}</h4>
+        <div className="dropdown">
+          <button
+            className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+          >
+            {defaultOption}
+            <span className="caret"></span>
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
+            {this.renderListItems()}
+          </ul>
+        </div>
+        <div className="result">
+          You selected
+          <strong> {placeHolderValue} </strong>
+        </div>
+      </div>
+      /* <div className={'dropdown-container' + (this.state.isVisible ? ' show' : '')}>
         <div
           className={'dropdown-display' + (this.state.isVisible ? ' clicked' : '')}
           onClick={this.toggleVisible}
@@ -48,7 +71,7 @@ class Dropdown extends React.Component {
             {this.renderListItems()}
           </div>
         </div>
-      </div>
+      </div>*/
     );
   }
 }
