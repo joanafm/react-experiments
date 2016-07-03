@@ -1,0 +1,124 @@
+import React from 'react';
+
+export class StartText extends React.Component{
+  render() {
+    return (<p>My name is Joana, and this is my first experience with react! I am not a pro yet, but it is ok, I will learn how to use this properly! I thought that it would be nice if I use react to introduce myself...</p>);
+  }
+};
+
+export class Button extends React.Component{
+  render() {
+    return (<button type="button" class="btn btn-default btn-lg">Let us start!</button>);
+  }
+};
+
+export class FirstExperience extends React.Component{
+    render(){
+	var rows = []
+	rows.push(<StartText/>);
+	rows.push(<Button/>);
+	return(<table>
+	       <tbody>
+	       {rows}
+	       </tbody>
+	       </table>)
+    }
+};
+
+export class Lemma extends React.Component{
+  render() {
+      return (<h1>"I like to create things, I like the feeling of create something from nothing, and I really love to see the results of my work!"</h1>);
+  }
+};
+
+export class Introduction extends React.Component{
+    render(){
+	return (<p>I am a final year student of Mater s Degree in Network and Information Systems Engineering, in Faculty of Sciences, University of Porto.</p>);
+    }
+};
+
+export class Experience extends React.Component{
+    render(){
+	return (<p>During the last few years, I took a special liking to logic, web development, and databases. I have worked essentially with HTML, CSS, JavaScript, jQuery, mySQL, and Node.js. I have developed a good sense of teamwork, and the ability to work well under pressure. I like to learn new things, and I believe that I am a fast and flexible learner. I consider myself a responsible, persistent, dedicated, and ambitious person. I strive always to achieve the best result within the given deadlines.</p>);
+    }
+};
+
+export class Abstract extends React.Component{
+  render() {
+      return (<p>The Formula-Tree Method Tool (FTM-Tool) helps the user, in an interactive way, to address problems related to type-inhabitation in the simply typed &lambda;-calculus. To this end, the tool explores the potential of formula-tree method. This method was presented in 2000, and in 2005, and tackles problems such as deciding if a type &alpha; has a normal inhabitant, determine whether the number of inhabitants of &alpha; is finite or infinite, or compute the set of all inhabitants of &alpha;.</p>);
+  }
+};
+
+export class FTMTool extends React.Component{
+    render(){
+	return (<a href="http://www.alunos.dcc.fc.up.pt/~up200905000/FTM/index.html">FTM-Tool</a>);
+    }
+};
+
+export class LastWork extends React.Component{
+    render() {
+	var ftm = []
+	ftm.push(<h2>My Last Work:</h2>)
+	ftm.push(<h3>Formula-Tree Method Tool</h3>)
+	ftm.push(<Abstract/>)
+	ftm.push(<FTMTool/>)
+	return (<table>
+	       <tbody>
+	       {ftm}
+	       </tbody>
+	       </table>);
+    }
+};
+
+export class MotivationLetter extends React.Component{
+    render() {
+	var rows = []
+	rows.push(<Lemma/>);
+	rows.push(<Introduction/>);
+	rows.push(<Experience/>);
+	rows.push(<LastWork/>);
+      return (<table>
+	       <tbody>
+	       {rows}
+	       </tbody>
+	       </table>);
+  }
+};
+
+export class Hi extends React.Component{
+  render() {
+      return (<h1>Hi all!! =^.^=</h1>);
+  }
+};
+
+export class Body extends React.Component{
+    render() {
+	var rows = []
+	rows.push(<FirstExperience/>)
+	rows.push(<MotivationLetter/>)
+	return (<table>
+	       <tbody>
+	       {rows}
+	       </tbody>
+	       </table>);
+    }
+};
+
+export class Section extends React.Component{
+    render() {
+	var rows = []
+	rows.push(<Hi/>);
+	rows.push(<Body/>);
+	return(<table>
+	       <tbody>
+	       {rows}
+	       </tbody>
+	       </table>);
+    }
+};
+
+const App = () => (
+	<Section/>
+)
+
+export default App;
