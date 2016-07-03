@@ -3,24 +3,23 @@ import Dropdown from './Dropdown';
 
 class Timeslot extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.initTimeSlots();
-  }
-
   state = {
     slots: []
   }
 
+  componentDidMount() {
+    this.initTimeSlots();
+  }
+
   initTimeSlots() {
-    const slots = buildSlotsList();
+    const slots = this.buildSlotsList();
     this.setState({ slots });
   }
 
   // must return an array of timeslots
   buildSlotsList() {
     let slots = [];
-    let time = 1440;
+    /*let time = 1440;
     let interval = 0;
 
     // acho que nao podes fazer isto... modificar o props.interval
@@ -34,14 +33,16 @@ class Timeslot extends React.Component {
     }
 
     time = time / interval;
-    Number((time).toFixed(1));
+    Number((time).toFixed(1));*/
+
+    slots = ['00:00', '00:30', '01:00', '01:30'];
 
     return slots;
   }
 
   render() {
     return (
-      <Dropdown list={this.state.slots}/>
+      <Dropdown list={this.state.slots} />
     );
   }
 }
