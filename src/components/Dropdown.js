@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 class Dropdown extends React.Component {
 
@@ -42,13 +43,15 @@ class Dropdown extends React.Component {
       <div>
         <h4>{this.props.title}</h4>
         <div className="dropdown">
-          <button
-            className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+          <Button
+            id="dropdownMenu1"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true"
           >
             {defaultOption}
             <span className="caret"></span>
-          </button>
+          </Button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
             {this.renderListItems()}
           </ul>

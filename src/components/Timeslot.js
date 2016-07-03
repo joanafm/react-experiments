@@ -42,11 +42,19 @@ class Timeslot extends React.Component {
 
   render() {
     return (
-      <Dropdown
-        title="Choose your schedule:"
-        message="Time"
-        list={this.state.slots}
-      />
+      <div>
+        <h3>Choose your schedule:</h3>
+        <Dropdown
+          title="Start:"
+          message="Time"
+          list={this.state.slots}
+        />
+        <Dropdown
+          title="End:"
+          message="Time"
+          list={this.state.slots}
+        />
+      </div>
     );
   }
 }
