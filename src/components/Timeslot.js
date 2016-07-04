@@ -1,6 +1,10 @@
 import React from 'react';
 import Dropdown from './Dropdown';
 
+const handleClick = () => {
+  console.log('yay');
+};
+
 class Timeslot extends React.Component {
 
   static propTypes = {
@@ -61,11 +65,13 @@ class Timeslot extends React.Component {
           title="Start:"
           message={this.state.slots[0]}
           list={this.state.slots}
+          onClick={handleClick}
         />
         <Dropdown
           title="End:"
           message={this.state.slots[1]}
           list={this.state.slots}
+          onClick={handleClick}
         />
       </div>
     );

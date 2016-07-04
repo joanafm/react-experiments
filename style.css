@@ -7,10 +7,15 @@ h3{
   text-align: center;
 }
 
+img{
+  width: 100%;
+  height: 200px;
+}
+
 #dropdownMenu1{
-  background: linear-gradient(to bottom right, #D8BFD8, #F5F5F5);
+  background: linear-gradient(to bottom right, #4D94FF, #F5F5F5);
   color: black;
-  border: 2px solid #FF1493;
+  border: 2px solid #00008B;
   box-shadow: 5px 5px 2px #888888;
 }
 
@@ -21,4 +26,8 @@ h3{
 
 #schedule{
   margin-top: 50px;
+}
+
+#chooseDuration{
+  margin-top: 10px;
 }

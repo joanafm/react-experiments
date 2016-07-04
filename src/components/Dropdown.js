@@ -8,7 +8,8 @@ class Dropdown extends React.Component {
     list: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     title: React.PropTypes.string,
     message: React.PropTypes.string,
-    selected: React.PropTypes.string
+    selected: React.PropTypes.string,
+    onClick: React.PropTypes.func
   }
 
   /* state = {
@@ -28,6 +29,7 @@ class Dropdown extends React.Component {
   }
 
   handleSelection(item) {
+    this.props.onClick();
     if (this.props.title === 'Choose the duration of your time slot:') {
       this.setState({ choosen: { item } });
     }
