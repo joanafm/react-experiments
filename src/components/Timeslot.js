@@ -3,8 +3,13 @@ import Dropdown from './Dropdown';
 
 class Timeslot extends React.Component {
 
+  static propTypes = {
+    interval: React.PropTypes.string
+  }
+
   state = {
-    slots: []
+    slots: [],
+    interval: this.props.interval
   }
 
   componentDidMount() {
@@ -18,32 +23,40 @@ class Timeslot extends React.Component {
 
   // must return an array of timeslots
   buildSlotsList() {
-    let slots = [];
-    /*let time = 1440;
-    let interval = 0;
-
-    // acho que nao podes fazer isto... modificar o props.interval
-    if (this.props.interval === undefined) {
-      interval = 30;
+    const interval = parseInt(this.state.interval, 10);
+    const slots = ['08:00'];
+    let time = 1440;
+    let hour = 0;
+    let min = 0;
+    while (time !== 0) {
+      min += interval;
+      if (min === 60) {
+        if (hour !== 23) {
+          hour += 1;
+        } else {
+          hour = 0;
+        }
+        min = 0;
+      }
+      let thisH = hour;
+      let thisM = min;
+      if (thisH < 10) {
+        thisH = `0${hour}`;
+      }
+      if (thisM < 10) {
+        thisM = `0${min}`;
+      }
+      slots.push(`${thisH}:${thisM}`);
+      time -= interval;
     }
-
-    if (interval > time) {
-      // we can not have slots bigger than time
-      return;
-    }
-
-    time = time / interval;
-    Number((time).toFixed(1));*/
-
-    slots = ['00:00', '00:30', '01:00', '01:30'];
 
     return slots;
   }
 
   render() {
     return (
-      <div>
-        <h3>Choose your schedule:</h3>
+      <div id="schedule">
+        <h2>Choose your schedule:</h2>
         <Dropdown
           title="Start:"
           message={this.state.slots[0]}

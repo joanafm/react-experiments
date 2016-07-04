@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Timeslot from './Timeslot';
 
 class Dropdown extends React.Component {
 
@@ -14,9 +15,21 @@ class Dropdown extends React.Component {
     isVisible: false
   } */
 
+  state = {
+    choosen: ''
+  }
+
+  getTimeslot() {
+    let time = '';
+    if (this.state.choosen !== '') {
+      time = <Timeslot interval={this.state.choosen.item} />;
+    }
+    return time;
+  }
+
   handleSelection(item) {
-    if (!(this.props.message === item)) {
-      console.log(`mudar para ${item}`);
+    if (this.props.title === 'Choose the duration of your time slot:') {
+      this.setState({ choosen: { item } });
     }
   }
 
@@ -29,7 +42,7 @@ class Dropdown extends React.Component {
     for (let i = 0; i < this.props.list.length; i++) {
       const item = this.props.list[i];
       items.push(
-        <div onClick={() => this.handleSelection(item)} key={i}>{item}</div>
+        <div ref={item} onClick={() => this.handleSelection(item)} key={i}>{item}</div>
       );
     }
 
@@ -39,8 +52,8 @@ class Dropdown extends React.Component {
   render() {
     const choosenValue = this.props.message;
     return (
-      <div>
-        <h4>{this.props.title}</h4>
+      <div id="dropDiv">
+        <h3>{this.props.title}</h3>
         <div className="dropdown">
           <Button
             id="dropdownMenu1"
@@ -56,10 +69,7 @@ class Dropdown extends React.Component {
             {this.renderListItems()}
           </ul>
         </div>
-        <div className="result">
-          You selected
-          <strong> {choosenValue} </strong>
-        </div>
+        {this.getTimeslot()}
       </div>
     );
   }
