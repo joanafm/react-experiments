@@ -10,26 +10,26 @@ class Dropdown extends React.Component {
     selected: React.PropTypes.string
   }
 
-  state = {
+  /* state = {
     isVisible: false
+  } */
+
+  handleSelection(item) {
+    if (!(this.props.message === item)) {
+      console.log(`mudar para ${item}`);
+    }
   }
 
-  handleSelection = (item) => {
-    this.props.selected = item;
-  }
-
-  toggleVisible() {
+  /* toggleVisible() {
     this.setState({ isVisible: !this.state.isVisible });
-  }
+  }*/
 
   renderListItems() {
     const items = [];
     for (let i = 0; i < this.props.list.length; i++) {
       const item = this.props.list[i];
       items.push(
-        <div onClick={this.handleSelection}>
-          <span>{item}</span>
-        </div>
+        <div onClick={() => this.handleSelection(item)} key={i}>{item}</div>
       );
     }
 
@@ -37,8 +37,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const defaultOption = this.props.message;
-    const placeHolderValue = this.props.list[0];
+    const choosenValue = this.props.message;
     return (
       <div>
         <h4>{this.props.title}</h4>
@@ -50,7 +49,7 @@ class Dropdown extends React.Component {
             aria-expanded="true"
             styles="dropdown-toggle"
           >
-            {defaultOption}
+            {choosenValue}
             <span className="caret"></span>
           </Button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -59,23 +58,9 @@ class Dropdown extends React.Component {
         </div>
         <div className="result">
           You selected
-          <strong> {placeHolderValue} </strong>
+          <strong> {choosenValue} </strong>
         </div>
       </div>
-      /* <div className={'dropdown-container' + (this.state.isVisible ? ' show' : '')}>
-        <div
-          className={'dropdown-display' + (this.state.isVisible ? ' clicked' : '')}
-          onClick={this.toggleVisible}
-        >
-          <span>{this.props.selected}</span>
-          <i className="fa fa-angle-down"></i>
-        </div>
-        <div className="dropdown-list">
-          <div>
-            {this.renderListItems()}
-          </div>
-        </div>
-      </div>*/
     );
   }
 }

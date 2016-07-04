@@ -46,12 +46,12 @@ class Timeslot extends React.Component {
         <h3>Choose your schedule:</h3>
         <Dropdown
           title="Start:"
-          message="Time"
+          message={this.state.slots[0]}
           list={this.state.slots}
         />
         <Dropdown
           title="End:"
-          message="Time"
+          message={this.state.slots[1]}
           list={this.state.slots}
         />
       </div>
