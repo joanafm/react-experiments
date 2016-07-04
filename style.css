@@ -12,6 +12,15 @@ img{
   height: 200px;
 }
 
+#ddown{
+  font-size: 15px;
+  color: black;
+  padding: 10px;
+  height: 100px;
+  overflow: auto;
+  background: linear-gradient(to bottom right, #F5F5F5, #4D94FF);
+}
+
 #dropdownMenu1{
   background: linear-gradient(to bottom right, #4D94FF, #F5F5F5);
   color: black;

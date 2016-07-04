@@ -67,7 +67,7 @@ class Dropdown extends React.Component {
             {choosenValue}
             <span className="caret"></span>
           </Button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <ul id="ddown" className="dropdown-menu" aria-labelledby="dropdownMenu1">
             {this.renderListItems()}
           </ul>
         </div>
