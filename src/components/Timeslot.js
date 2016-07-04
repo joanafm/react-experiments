@@ -24,7 +24,7 @@ class Timeslot extends React.Component {
   // must return an array of timeslots
   buildSlotsList() {
     const interval = parseInt(this.state.interval, 10);
-    const slots = ['08:00'];
+    const slots = ['00:00'];
     let time = 1440;
     let hour = 0;
     let min = 0;
